@@ -44,7 +44,8 @@ public class JWTUtil {
         Role role = user.getRoles().iterator().next();
         return JWT.create().withSubject(user.getEmail())
             .withExpiresAt(new Date(System.currentTimeMillis() + TOKEN_VALIDITY * 1000))
-            .withClaim("role", role.getName()).sign(Algorithm.HMAC256(this.secret));
+            .withClaim("user_id", user.getId().toString())
+            .withClaim("roles", role.getName()).sign(Algorithm.HMAC256(this.secret));
     }
 
     public String getUsername(String token) {

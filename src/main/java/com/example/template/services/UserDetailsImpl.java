@@ -28,8 +28,8 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        // user.getRoles().stream().map((r -> new SimpleGrantedAuthority(r.getName())))
-        //     .forEach(authorities::add);;
+        user.getRoles().stream().map((r -> new SimpleGrantedAuthority(r.getName())))
+            .forEach(authorities::add);
 
         return authorities;
     }

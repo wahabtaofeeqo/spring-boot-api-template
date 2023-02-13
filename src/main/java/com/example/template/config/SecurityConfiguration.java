@@ -20,7 +20,8 @@ import com.example.template.security.AuthenticationFilter;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
-    prePostEnabled = true, securedEnabled = true)
+    prePostEnabled = true, 
+    securedEnabled = true)
 public class SecurityConfiguration {
     
     @Autowired
