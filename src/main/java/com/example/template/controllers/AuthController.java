@@ -3,6 +3,7 @@ package com.example.template.controllers;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import javax.validation.Valid;
 
@@ -48,6 +49,8 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    private Logger logger = Logger.getLogger(getClass().getSimpleName());
+
     @PostMapping("login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginDTO dto) {
 
@@ -60,7 +63,7 @@ public class AuthController {
                 new ErrResponse("Username OR Password not correct", e.getMessage()));
         }
 
-        UserDetailsImpl detailsImpl = (UserDetailsImpl)  authentication.getPrincipal();
+        UserDetailsImpl detailsImpl = (UserDetailsImpl) authentication.getPrincipal();
         String token = jwtUtil.generateToken(detailsImpl.getUser());
        
         Map<String, Object> data = new HashMap<>();
@@ -72,7 +75,7 @@ public class AuthController {
     }
 
     @PostMapping("register")
-    public ResponseEntity<?> register(@RequestBody RegisterDTO dto) {
+    public ResponseEntity<?> register(@Valid @RequestBody RegisterDTO dto) {
 
         // Check 
         User user = this.userRepository.findByEmail(dto.getEmail());

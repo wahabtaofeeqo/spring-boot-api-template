@@ -1,7 +1,6 @@
 package com.example.template.security;
 
 import java.io.IOException;
-import java.util.logging.Logger;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -14,7 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.example.template.services.UserServiceDetailsImpl;
+import com.example.template.services.UserDetailsServiceImpl;
 
 public class AuthenticationFilter extends OncePerRequestFilter {
 
@@ -22,9 +21,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     JWTUtil jwtUtil;
 
     @Autowired
-    UserServiceDetailsImpl detailsImpl;
-
-    private Logger logger = Logger.getLogger(getClass().getSimpleName());
+    UserDetailsServiceImpl detailsImpl;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

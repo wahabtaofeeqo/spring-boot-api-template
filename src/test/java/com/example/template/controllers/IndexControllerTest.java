@@ -6,19 +6,19 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.example.template.AbstractTest;
+
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
-@SpringBootTest
-@AutoConfigureMockMvc
-public class IndexControllerTest {
+public class IndexControllerTest extends AbstractTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    void testShouldReturnWelcomeResponse() throws Exception {
+    void testWelcome_shouldPassWith200() throws Exception {
         mockMvc.perform(get("/"))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.status", is(true)));

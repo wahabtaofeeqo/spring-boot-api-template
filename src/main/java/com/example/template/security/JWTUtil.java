@@ -1,11 +1,7 @@
 package com.example.template.security;
 
-import java.security.Key;
-import java.util.Base64;
 import java.util.Date;
 import java.util.logging.Logger;
-
-import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

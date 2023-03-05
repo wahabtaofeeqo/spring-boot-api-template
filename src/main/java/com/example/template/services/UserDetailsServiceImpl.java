@@ -10,7 +10,7 @@ import com.example.template.models.User;
 import com.example.template.repositories.UserRepository;
 
 @Service
-public class UserServiceDetailsImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository repository;
