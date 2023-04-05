@@ -8,11 +8,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ApiApplicationTests extends AbstractTest {
 
-	@Autowired
-	private IndexController controller;
+    @Autowired
+    private IndexController controller;
 
-	@Test
-	void contextLoads() {
-		assertThat(controller).isNotNull();
-	}
+    @Test
+    void contextLoads() {
+        assertThat(controller).isNotNull();
+    }
 }
